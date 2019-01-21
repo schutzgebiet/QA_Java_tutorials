@@ -1,0 +1,37 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		int[] arr;
+		
+		int left = 1;
+		int right = Integer.MAX_VALUE;
+		
+		try {
+			arr = new int[right];
+			System.out.println(right);
+			return;
+		} catch (Error e) {}
+		arr = null;
+		
+		int middle=0;
+		while (right - left > 1) {
+			middle = left + (right-left)/2;
+			
+			System.out.println(left+";"+middle+";"+right);
+			
+			try {
+				arr = new int[middle];
+				left = middle;
+			} catch (Error e) {
+				right = middle;
+			}
+			
+			arr = null;
+		}
+		System.out.println(left);
+
+	}
+
+}
